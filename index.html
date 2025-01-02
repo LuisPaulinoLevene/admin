@@ -177,8 +177,8 @@
                 return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
             };
 
-            const nomeDoc = removerAcentos(`${classe}_${disciplina}_${unidadeTematica}_${tema}_${duracao}`)
-                .replace(/\s+/g, '_') // Substitui espaços por _
+            const nomeDoc = removerAcentos(`${classe}${disciplina}${unidadeTematica}${tema}${duracao}`)
+                .replace(/\s+/g, '') // ignora espaco
                 .toLowerCase(); // Converte para minúsculas
 
             document.getElementById('nome-doc').value = nomeDoc;
