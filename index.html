@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Times New Roman', serif;
             background-color: #f4f4f4;
             color: #333;
             line-height: 1.6;
@@ -46,6 +46,7 @@
         }
 
         input[type="text"] {
+            font-family: 'Times New Roman', serif;
             padding: 10px;
             margin-bottom: 1px;
             border: 1px solid red;
@@ -59,6 +60,7 @@
         }
 
         button {
+            font-family: 'Times New Roman', serif;
             padding: 10px;
             background-color: #007BFF;
             color: #fff;
@@ -178,7 +180,14 @@
             };
 
             const nomeDoc = removerAcentos(`${classe}${disciplina}${unidadeTematica}${tema}${duracao}`)
-                .replace(/\s+/g, '') // ignora espaco
+                .replace(/\s+/g, '') // Remove espaco
+                .replace(/[:]/g, '') // Remove os dois pontos
+                .replace(/[.]/g, '') // Remove ponto
+                .replace(/[,]/g, '') // Remove virgula
+                .replace(/[;]/g, '') // Remove ponto e virgula
+                .replace(/[!]/g, '') // Remove ponto de exclamacao
+                .replace(/[?]/g, '') // Remove ponto de interrogacao
+                .replace(/[_]/g, '') // Remove underline
                 .toLowerCase(); // Converte para minúsculas
 
             document.getElementById('nome-doc').value = nomeDoc;
