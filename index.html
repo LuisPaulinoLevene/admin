@@ -136,7 +136,6 @@
             <input type="text" id="disciplina" placeholder="Disciplina" required oninput="updateDocName()">
             <input type="text" id="unidade-tematica" placeholder="Unidade tematica" required oninput="updateDocName()">
             <input type="text" id="tema" placeholder="Tema" required oninput="updateDocName()">
-            <input type="text" id="duracao" placeholder="Duracao da aula (Apenas numeros. Maximo 2 caracteres)" required oninput="updateDocName(); this.value = this.value.replace(/\D/g, '').slice(0, 2)">
             <input type="text" id="nome-doc" placeholder="Nome do documento" readonly>
 
             <div class="file-upload" id="upload-doc">
@@ -173,13 +172,12 @@
             const disciplina = document.getElementById('disciplina').value;
             const unidadeTematica = document.getElementById('unidade-tematica').value;
             const tema = document.getElementById('tema').value;
-            const duracao = document.getElementById('duracao').value;
 
             const removerAcentos = (str) => {
                 return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
             };
 
-            const nomeDoc = removerAcentos(`${classe}${disciplina}${unidadeTematica}${tema}${duracao}`)
+            const nomeDoc = removerAcentos(`${classe}${disciplina}${unidadeTematica}${tema}`)
                 .replace(/\s+/g, '') // Remove espaco
                 .replace(/[:]/g, '') // Remove os dois pontos
                 .replace(/[.]/g, '') // Remove ponto
